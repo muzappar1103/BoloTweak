@@ -1,0 +1,15 @@
+# macOS 垃圾文件
+.DS_Store
+._*
+__MACOSX/
+
+# 临时文件
+*.tmp
+*.log
+
+# Python
+__pycache__/
+*.pyc
+
+# 注意：Packages / Packages.bz2 由 CI 自动生成，但也要提交（Sileo 直接读）
+# 不要把它们加进这里
