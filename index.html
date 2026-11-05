@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0a0a0c">
+<title>BoloTweak — 菠萝自用 Tweak 源</title>
+<style>
+  :root{
+    --bg:#0a0a0c;
+    --card:#16161a;
+    --card-hi:#1e1e24;
+    --line:rgba(255,255,255,.09);
+    --text:#f2f2f5;
+    --text-dim:#8e8e99;
+    --accent:#5b8cff;
+    --accent-2:#8f6bff;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #1b1f3a 0%, transparent 55%),
+      radial-gradient(90% 60% at 90% 10%, #2a1b3a 0%, transparent 50%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue",Arial,sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:calc(env(safe-area-inset-top) + 56px) 22px calc(env(safe-area-inset-bottom) + 40px);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:100%;max-width:420px}
+
+  /* ---- 头部 ---- */
+  .head{display:flex;flex-direction:column;align-items:center;text-align:center}
+  .icon{
+    width:104px;height:104px;border-radius:24px;
+    background:linear-gradient(145deg,#5b8cff,#8f6bff 60%,#c46bff);
+    display:flex;align-items:center;justify-content:center;
+    font-size:44px;font-weight:700;letter-spacing:-2px;color:#fff;
+    box-shadow:0 18px 44px -12px rgba(91,140,255,.6), inset 0 1px 0 rgba(255,255,255,.28);
+    overflow:hidden;
+  }
+  .icon img{width:100%;height:100%;object-fit:cover;display:block}
+  h1{font-size:25px;font-weight:650;margin:20px 0 7px;letter-spacing:-.4px}
+  .sub{font-size:14px;color:var(--text-dim);margin:0;line-height:1.55}
+
+  /* ---- 按钮组 ---- */
+  .btns{display:flex;flex-direction:column;gap:11px;margin-top:34px}
+  .btn{
+    display:flex;align-items:center;gap:13px;
+    padding:15px 17px;
+    border-radius:16px;
+    background:var(--card);
+    border:1px solid var(--line);
+    color:var(--text);
+    text-decoration:none;
+    font-size:15.5px;font-weight:560;
+    transition:transform .13s ease, background .18s ease, border-color .18s ease;
+  }
+  .btn:active{transform:scale(.975);background:var(--card-hi)}
+  .btn .ico{
+    width:30px;height:30px;border-radius:9px;flex:0 0 30px;
+    object-fit:cover;display:block;
+  }
+  .btn .txt{flex:1;text-align:left}
+  .btn .hint{font-size:12px;font-weight:450;color:var(--text-dim);margin-top:2px}
+  .btn .arrow{color:var(--text-dim);font-size:15px;flex:0 0 auto}
+
+  .sileo .ico{box-shadow:0 2px 8px -2px rgba(0,0,0,.5)}
+  .irisin .ico{box-shadow:0 2px 8px -2px rgba(0,0,0,.5)}
+
+  /* ---- 地址框 ---- */
+  .addr{
+    margin-top:26px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:15px 16px;
+  }
+  .addr .lbl{
+    font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--text-dim);margin-bottom:9px;font-weight:600;
+  }
+  .addr .row{display:flex;align-items:center;gap:11px}
+  .addr code{
+    flex:1;font-size:12.5px;line-height:1.5;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    color:#c9d3f5;word-break:break-all;
+  }
+  .copy{
+    flex:0 0 auto;
+    border:1px solid rgba(91,140,255,.4);
+    background:rgba(91,140,255,.12);
+    color:#9db4ff;
+    font-size:12.5px;font-weight:600;
+    padding:8px 14px;border-radius:10px;
+    cursor:pointer;font-family:inherit;
+    transition:background .15s ease;
+  }
+  .copy:active{background:rgba(91,140,255,.26)}
+  .copy.done{color:#7ee0b8;border-color:rgba(126,224,184,.45);background:rgba(126,224,184,.14)}
+
+  /* ---- 底部说明 ---- */
+  .note{
+    margin-top:28px;font-size:12.5px;line-height:1.85;color:var(--text-dim);
+    text-align:center;
+  }
+  .note b{color:#b8b8c4;font-weight:560}
+  .foot{
+    margin-top:34px;font-size:11.5px;color:#54545e;text-align:center;
+    line-height:1.8;
+  }
+  .foot a{color:#6d7ba8;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <div class="icon"><img src="CydiaIcon.png" alt="BoloTweak"></div>
+    <h1>BoloTweak</h1>
+    <p class="sub">菠萝自用 Tweak 源</p>
+  </div>
+
+  <div class="btns">
+    <a class="btn sileo" id="sileoBtn" href="#">
+      <img class="ico" src="assets/sileo-icon.png" alt="Sileo" width="30" height="30">
+      <span class="txt">添加到 Sileo<div class="hint">iphoneos-arm · arm64 · arm64e</div></span>
+      <span class="arrow">›</span>
+    </a>
+    <a class="btn irisin" id="irisinBtn" href="#">
+      <img class="ico" src="assets/irisin-icon.png" alt="Irisin" width="30" height="30">
+      <span class="txt">添加到 Irisin<div class="hint">iOS 15+ · rootless / roothide</div></span>
+      <span class="arrow">›</span>
+    </a>
+  </div>
+
+  <div class="addr">
+    <div class="lbl">源地址</div>
+    <div class="row">
+      <code id="repoUrl">https://muzappar1103.github.io/BoloTweak/</code>
+      <button class="copy" id="copyBtn" type="button">复制</button>
+    </div>
+  </div>
+
+  <p class="note">
+    在 Sileo 或 Irisin 中打开此页可直接加源。<br>
+    若按钮无反应，请<b>复制上方地址</b>手动添加。
+  </p>
+
+  <div class="foot">
+    BoloTweak · 维护者 菠萝<br>
+    <a href="https://github.com/muzappar1103/BoloTweak">GitHub 仓库</a>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var REPO = "https://muzappar1103.github.io/BoloTweak/";
+
+  // Sileo / Irisin 的 URL scheme
+  // Irisin 官方格式：irisin://repository/add?url=<repo>
+  //   见 Lakr233/Irisin AGENTS.md
+  document.getElementById("sileoBtn").href = "sileo://source/" + REPO;
+  document.getElementById("irisinBtn").href =
+    "irisin://repository/add?url=" + encodeURIComponent(REPO);
+
+  // 复制
+  var btn = document.getElementById("copyBtn");
+  var urlEl = document.getElementById("repoUrl");
+  btn.addEventListener("click", function () {
+    var text = urlEl.textContent.trim();
+    var done = function () {
+      btn.textContent = "已复制";
+      btn.classList.add("done");
+      setTimeout(function () {
+        btn.textContent = "复制";
+        btn.classList.remove("done");
+      }, 1600);
+    };
+    // 优先用 Clipboard API；iOS 非 https 或旧版会失败，回退 execCommand
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done).catch(function () {
+        fallback(text, done);
+      });
+    } else {
+      fallback(text, done);
+    }
+  });
+
+  function fallback(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.top = "-1000px";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    try { document.execCommand("copy"); done(); } catch (e) { /* 交给用户手动选 */ }
+    document.body.removeChild(ta);
+  }
+})();
+</script>
+</body>
+</html>
