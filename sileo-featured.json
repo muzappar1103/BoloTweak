@@ -1,0 +1,16 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.3",
+  "tabs": [
+    {
+      "tabname": "详情",
+      "class": "DepictionMarkdownView",
+      "markdown": "## BoloTweak\n\n菠萝自用 Tweak 源。\n\n包含在 Sileo / Saily / Cydia 中均可正常使用。\n\n**支持架构**：`iphoneos-arm` · `iphoneos-arm64` · `iphoneos-arm64e`"
+    },
+    {
+      "tabname": "支持",
+      "class": "DepictionMarkdownView",
+      "markdown": "遇到问题请通过 GitHub 仓库反馈。"
+    }
+  ]
+}
