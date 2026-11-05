@@ -1,3 +1,18 @@
+Package: com.bolo.zztaoji
+Name: 帮我淘鸡
+Version: 1.1.0
+Architecture: iphoneos-arm64e
+Section: Tweaks
+Maintainer: 菠萝
+Author: 菠萝
+Description: 转转二手 iPhone 淘机助手：搜索结果按 iOS 系统版本区间自动过滤，悬浮胶囊随时调整区间；命中商品自动生成清单（版本/价格/外观/电池/充电次数），点按直达商品详情。
+Depiction: https://muzappar1103.github.io/BoloTweak/sileodepiction/com.bolo.zztaoji.html
+Filename: ./debs/com.bolo.zztaoji_1.1.0_iphoneos-arm64e.deb
+Size: 44404
+MD5sum: 5f0cb9e56385c11aac09287c8be92e2e
+SHA1: f6105e81553642158fbdb3f7a71cd6a5b71b4b24
+SHA256: 1a0801449be659f17d929c1922360db4162e9276e00369a179b48c4d565b6cd9
+
 Package: com.shijian.filzatofila
 Name: FilzaToFila
 Version: 0.0.14-1+debug

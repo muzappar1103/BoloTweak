@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0c">
+<title>帮我淘鸡 — BoloTweak</title>
+<style>
+  :root{
+    --bg:#0a0a0c; --card:#16161a; --line:rgba(255,255,255,.09);
+    --text:#f2f2f5; --text-dim:#8e8e99; --accent:#5b8cff;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #1b1f3a 0%, transparent 55%),
+      radial-gradient(90% 60% at 90% 10%, #2a1b3a 0%, transparent 50%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue",Arial,sans-serif;
+    padding:calc(env(safe-area-inset-top) + 40px) 22px calc(env(safe-area-inset-bottom) + 40px);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.62;
+  }
+  .wrap{max-width:520px;margin:0 auto}
+  .head{display:flex;align-items:center;gap:14px}
+  .icon{
+    width:64px;height:64px;border-radius:16px;flex:0 0 64px;
+    background:linear-gradient(145deg,#ff8a5b,#ff6b9d 60%,#c46bff);
+    display:flex;align-items:center;justify-content:center;
+    font-size:28px;font-weight:700;color:#fff;letter-spacing:-1px;
+    box-shadow:0 14px 32px -12px rgba(255,107,157,.6), inset 0 1px 0 rgba(255,255,255,.28);
+  }
+  h1{font-size:21px;margin:0 0 4px;font-weight:650;letter-spacing:-.3px}
+  .pkg{font-size:12.5px;color:var(--text-dim);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
+  .badge{
+    font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;
+    background:rgba(91,140,255,.13);border:1px solid rgba(91,140,255,.32);color:#9db4ff;
+  }
+  .badge.gray{background:rgba(255,255,255,.05);border-color:var(--line);color:var(--text-dim)}
+  h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);
+     margin:26px 0 10px;font-weight:650}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 17px}
+  .card p{margin:0 0 11px;font-size:14px}
+  .card p:last-child{margin-bottom:0}
+  ul{margin:0;padding-left:19px;font-size:14px}
+  li{margin:6px 0}
+  li::marker{color:#5b8cff}
+  .warn{
+    border-left:2px solid #c46bff;
+    background:rgba(196,107,255,.08);
+    padding:11px 14px;border-radius:0 10px 10px 0;
+    font-size:13px;color:#cfc6e8;
+  }
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+       font-size:12.5px;background:rgba(255,255,255,.06);padding:1px 5px;border-radius:5px;color:#c9d3f5}
+  .foot{margin-top:30px;font-size:11.5px;color:#54545e;text-align:center;line-height:1.85}
+  .foot a{color:#6d7ba8;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <div class="icon">淘</div>
+    <div>
+      <h1>帮我淘鸡</h1>
+      <div class="pkg">com.bolo.zztaoji</div>
+    </div>
+  </div>
+
+  <div class="badges">
+    <span class="badge">1.1.0</span>
+    <span class="badge gray">iphoneos-arm64e</span>
+    <span class="badge gray">iOS 15.0+ · RootHide</span>
+  </div>
+
+  <div class="card">
+    <p>在转转 App 里按 <b>iOS 系统版本区间</b>过滤二手 iPhone 搜索结果，把符合的机器自动整理成一份清单，点一下直达商品详情。</p>
+    <p>适合找「还在可越狱版本」的机器：设定 <code>17.0 ~ 17.3.1</code>，列表里就只剩这个区间的机器，其余自动剔除。</p>
+  </div>
+
+  <h2>功能</h2>
+  <div class="card">
+    <ul>
+      <li><b>版本过滤</b> — 搜索结果按系统版本区间实时筛，版本未知的机型自动剔除</li>
+      <li><b>悬浮胶囊</b> — App 内可拖动入口，点开面板改区间，即时生效</li>
+      <li><b>命中清单</b> — 版本 / 价格 / 外观功能标签 / 标题一览，点按走转转内部路由直达原生详情页</li>
+      <li><b>自动缓存</b> — 验机报告的系统版本、电池健康值、充电次数、购买渠道落盘，越刷越快</li>
+      <li><b>清理缓存</b> — 一键清空重新开始</li>
+    </ul>
+  </div>
+
+  <h2>使用</h2>
+  <div class="card">
+    <p>安装后打开转转，搜索 iPhone，屏幕边缘会出现悬浮胶囊。</p>
+    <ul>
+      <li>点胶囊 → 设置区间（默认 <code>17.0</code> ~ <code>17.3.1</code>）</li>
+      <li>回到搜索列表，非区间内的机器会被自动隐藏</li>
+      <li>面板里点「命中清单」查看所有命中机器，点行直达详情</li>
+    </ul>
+  </div>
+
+  <h2>环境</h2>
+  <ul>
+    <li>越狱 iPhone（rootless 环境，RootHide / Dopamine）</li>
+    <li>iOS 15.0 及以上；已在 iPhone16,2 / iOS 17.3 / RootHide 实测</li>
+    <li>目标 App：转转 <code>com.wuba.zhuanzhuan</code></li>
+    <li>其他 iOS 版本与越狱方案未逐一验证</li>
+  </ul>
+
+  <h2>说明</h2>
+  <div class="card">
+    <p>版本数据来自转转的验机报告接口，只有「二手优品 / BS 机」等带验机报告的机器才有数据；C2C 个人发布的机器大概率查不到版本，会被自动剔除。</p>
+    <div class="warn">仅供个人学习研究 iOS 逆向工程之用，与转转官方无关。请遵守平台规则，勿用于批量爬取或商业用途。</div>
+  </div>
+
+  <div class="foot">
+    BoloTweak · 维护者 菠萝<br>
+    <a href="https://github.com/muzappar1103/BoloTweak">GitHub 仓库</a>
+  </div>
+
+</div>
+</body>
+</html>

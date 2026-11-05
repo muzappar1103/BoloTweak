@@ -14,6 +14,7 @@ https://muzappar1103.github.io/BoloTweak/
 
 | 包名 | 版本 | 架构 | 说明 |
 |---|---|---|---|
+| `com.bolo.zztaoji` | 1.1.0 | arm64e | **帮我淘鸡** — 转转二手 iPhone 淘机助手：按 iOS 系统版本区间过滤搜索结果，命中商品自动生成清单并直达详情。带悬浮胶囊随时改区间、验机报告缓存。详见 `sileodepiction/com.bolo.zztaoji.html` |
 | `com.shijian.filzatofila` | 0.0.14 | arm64e | **FilzaToFila** — Filza 长按菜单加「用 Fila 打开」。基于原作者 **时间会惩罚我** 的 0.0.1-2 版本适配 **iOS 17.2 / RootHide**，保留原始 `fila://view<路径>` 跳转方式，源码见 `source/FilzaToFila/`，适配说明见 `sileodepiction/com.shijian.filzatofila.html` |
 
 ---
