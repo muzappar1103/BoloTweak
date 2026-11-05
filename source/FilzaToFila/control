@@ -1,6 +1,9 @@
 Package: com.shijian.filzatofila
 Name: FilzaToFila
-Description: Filza 长按菜单加"用 Fila 打开"
+Description: Filza 长按菜单加「用 Fila 打开」
+ 在原作者 时间会惩罚我 的 com.shijian.filzatofila 0.0.1-2 工作基础上适配 iOS 17.2 / RootHide 环境重新构建。
+ 保留原有 fila://view<路径> 跳转方式，文件与文件夹均跳转到 Filza 当前所在目录。
+ 仅注入 Filza（com.bat.petal），作者署名与原始来源均予保留，本包不是原作者发布的官方更新。
 Maintainer: 时间会惩罚我
 Author: 时间会惩罚我
 Section: Tweaks

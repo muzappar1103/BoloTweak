@@ -50,16 +50,19 @@ SHA256: c49cba81216ca53868d5e217e7d4f93cfc7fc1832116dd51d3e0d3c62ffb094a
 
 Package: com.shijian.filzatofila
 Name: FilzaToFila
-Version: 0.0.14-1+debug
+Version: 0.0.14-2+debug
 Architecture: iphoneos-arm64e
 Section: Tweaks
 Installed-Size: 212
 Maintainer: 时间会惩罚我
 Author: 时间会惩罚我
-Description: Filza 长按菜单加"用 Fila 打开"
+Description: Filza 长按菜单加「用 Fila 打开」
+ 在原作者 时间会惩罚我 的 com.shijian.filzatofila 0.0.1-2 工作基础上适配 iOS 17.2 / RootHide 环境重新构建。
+ 保留原有 fila://view<路径> 跳转方式，文件与文件夹均跳转到 Filza 当前所在目录。
+ 仅注入 Filza（com.bat.petal），作者署名与原始来源均予保留，本包不是原作者发布的官方更新。
 Depiction: https://muzappar1103.github.io/BoloTweak/sileodepiction/com.shijian.filzatofila.html
-Filename: ./debs/com.shijian.filzatofila_0.0.14-1+debug_iphoneos-arm64e.deb
-Size: 39162
-MD5sum: 6f91f360c5fe15206f31701ae79d4a98
-SHA1: 5762063351c9d1903fdbb26616851d11ad1456c3
-SHA256: 40725ce0ed768a97eaced3eabe389ea3004380f9362fc330f5b590cac7ab49ed
+Filename: ./debs/com.shijian.filzatofila_0.0.14-2+debug_iphoneos-arm64e.deb
+Size: 39408
+MD5sum: e86bd7adc8ae04373b1549701b844ffa
+SHA1: 60b62a62f5206bef54fd161111aa2b734dbe9cc3
+SHA256: 41804ff9fbf4689b95f3625d73e4631b3c133010778df5d805bd9930b12859f9

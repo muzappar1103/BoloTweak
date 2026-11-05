@@ -43,3 +43,13 @@ make package
 - Fila bundle id：`wiki.qaq.fila`
 
 其他 iOS、越狱方案、Filza/Fila 版本尚未验证。
+
+## 仓库发布说明
+
+仓库 `debs/` 里发布的是 `0.0.14-2+debug`：
+
+- tweak 二进制与 `0.0.14-1` **完全一致**（`data.tar.gz` 逐字节相同）
+- 只重写了 `control`，把「基于原作者 时间会惩罚我 的工作适配 iOS 17.2 / RootHide」的说明写进 `Description`，
+  这样在 Sileo / Irisin 的包页面（介绍区）直接可见，而不是只在网页详情页里
+
+`control` 里仍是 `Version: 0.0.14`（上游版本号），`-1/-2` 是打包修订号，由打包时附加。
