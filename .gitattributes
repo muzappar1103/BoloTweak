@@ -1,0 +1,18 @@
+# dpkg 纯文本元数据：必须是 LF，否则 Sileo/Cydia 解析失败
+Packages        text eol=lf
+Packages.bz2    binary
+Release         text eol=lf
+
+# 脚本与网页
+*.sh            text eol=lf
+*.py            text eol=lf
+*.html          text eol=lf
+*.json          text eol=lf
+*.yml           text eol=lf
+*.md            text eol=lf
+
+# 二进制资产
+*.deb           binary
+*.png           binary
+*.jpg           binary
+*.mp3           binary
