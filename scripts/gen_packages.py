@@ -209,12 +209,23 @@ def render_stanza(ctrl):
     for k in keys:
         value = ctrl[k]
         if "\n" in value:
-            # dpkg 多行字段规范：首行 "Key: value"，
-            # 后续行恰好一个前导空格；真正的空行表示为 " ."
-            parts = [p.strip() for p in value.split("\n")]
-            lines.append("%s: %s" % (k, parts[0]))
+            # dpkg 多行字段规范（Debian Policy 5.6.13）：
+            #   · 1 个前导空格 → 同一段落，多行会被**折叠成空格**再自动折行
+            #   · ≥2 个前导空格 → verbatim，保留原换行（硬断行）
+            #   · " ." → 空行
+            # 所以作者在 control 里写成 ≥2 空格开头的续行，必须原样输出；
+            # 早期这里对每行无条件 strip() 再补 1 个空格，会把作者的
+            # verbatim 排版压回一整段（Sileo 里就变成密不透风的一坨）。
+            # 行尾空格也要保留：Sileo 走 Markdown 渲染时靠它做硬换行。
+            parts = value.split("\n")
+            lines.append("%s: %s" % (k, parts[0].strip()))
             for p in parts[1:]:
-                lines.append(" " + p if p else " .")
+                if not p.strip():
+                    lines.append(" .")
+                elif len(p) - len(p.lstrip(" ")) >= 2:
+                    lines.append(p)          # verbatim：原样，含行尾空格
+                else:
+                    lines.append(" " + p.strip())
         else:
             lines.append("%s: %s" % (k, value))
     return "\n".join(lines)

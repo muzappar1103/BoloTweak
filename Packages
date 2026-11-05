@@ -13,6 +13,41 @@ MD5sum: 5f0cb9e56385c11aac09287c8be92e2e
 SHA1: f6105e81553642158fbdb3f7a71cd6a5b71b4b24
 SHA256: 1a0801449be659f17d929c1922360db4162e9276e00369a179b48c4d565b6cd9
 
+Package: com.dylix.xhsphotosave
+Name: XHS原图保存
+Version: 1.0
+Architecture: iphoneos-arm64e
+Section: Tweaks
+Depends: mobilesubstrate, firmware (>= 15.0)
+Installed-Size: 504
+Maintainer: 菠萝
+Author: 菠萝
+Description: 小红书笔记的原图 / 实况照片 / 视频一键保存
+  测试环境：小红书 9.49.1（RootHide rootless）  
+ .
+  功能  
+  · 原图：直取 CDN 原图，非截图、非缩略图  
+  · 实况照片：真 Live Photo，元数据轨 + UUID 绑定  
+  · 视频：最高 1440P，自带音轨，分片自动合轨  
+  · 视频封面：独立一项，可单独或一起保存  
+  · 选择面板：4 列网格，垂直滚动，带角标  
+  · 主页零采集：仅笔记页采集，信息流零缓存  
+ .
+  使用  
+  1. 打开笔记，悬浮球自动贴边显示  
+  2. 点击悬浮球呼出选择面板  
+  3. 勾选要保存的图片 / 视频 / 封面  
+  4. 点「保存 N 张」写入系统相册  
+  5. 球可拖动，松手吸附到最近的边缘  
+ .
+  日志：App 沙盒 Documents/XHSPhotoSave.log  
+Depiction: https://muzappar1103.github.io/BoloTweak/sileodepiction/com.dylix.xhsphotosave.html
+Filename: ./debs/com.dylix.xhsphotosave_1.0_iphoneos-arm64e.deb
+Size: 173122
+MD5sum: fd9fc92a2155d011f9ea79d5f1961adf
+SHA1: 2bb840081172bf2f117491143e1156cf153d34f9
+SHA256: c49cba81216ca53868d5e217e7d4f93cfc7fc1832116dd51d3e0d3c62ffb094a
+
 Package: com.shijian.filzatofila
 Name: FilzaToFila
 Version: 0.0.14-1+debug

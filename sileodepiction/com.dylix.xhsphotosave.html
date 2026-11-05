@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0c">
+<title>XHS原图保存 — BoloTweak</title>
+<style>
+  :root{
+    --bg:#0a0a0c; --card:#16161a; --line:rgba(255,255,255,.09);
+    --text:#f2f2f5; --text-dim:#8e8e99; --accent:#5b8cff;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #1b1f3a 0%, transparent 55%),
+      radial-gradient(90% 60% at 90% 10%, #2a1b3a 0%, transparent 50%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue",Arial,sans-serif;
+    padding:calc(env(safe-area-inset-top) + 40px) 22px calc(env(safe-area-inset-bottom) + 40px);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.62;
+  }
+  .wrap{max-width:520px;margin:0 auto}
+  .head{display:flex;align-items:center;gap:14px}
+  .icon{
+    width:64px;height:64px;border-radius:16px;flex:0 0 64px;
+    background:linear-gradient(145deg,#ff4d6a,#ff2d55 55%,#c46bff);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;font-weight:700;color:#fff;letter-spacing:-1px;
+    box-shadow:0 14px 32px -12px rgba(255,45,85,.55), inset 0 1px 0 rgba(255,255,255,.3);
+  }
+  h1{font-size:21px;margin:0 0 4px;font-weight:650;letter-spacing:-.3px}
+  .pkg{font-size:12.5px;color:var(--text-dim);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
+  .badge{
+    font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;
+    background:rgba(91,140,255,.13);border:1px solid rgba(91,140,255,.32);color:#9db4ff;
+  }
+  .badge.gray{background:rgba(255,255,255,.05);border-color:var(--line);color:var(--text-dim)}
+  h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);
+     margin:26px 0 10px;font-weight:650}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 17px}
+  .card p{margin:0 0 11px;font-size:14px}
+  .card p:last-child{margin-bottom:0}
+  ul,ol{margin:0;padding-left:19px;font-size:14px}
+  li{margin:7px 0}
+  li::marker{color:#5b8cff}
+  ol li::marker{font-weight:650}
+  .warn{
+    border-left:2px solid #ff4d6a;
+    background:rgba(255,77,106,.08);
+    padding:11px 14px;border-radius:0 10px 10px 0;
+    font-size:13px;color:#e8c6cf;
+  }
+  .warn + .warn{margin-top:10px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+       font-size:12.5px;background:rgba(255,255,255,.06);padding:1px 5px;border-radius:5px;color:#c9d3f5}
+  .foot{margin-top:30px;font-size:11.5px;color:#54545e;text-align:center;line-height:1.85}
+  .foot a{color:#6d7ba8;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <div class="icon">图</div>
+    <div>
+      <h1>XHS原图保存</h1>
+      <div class="pkg">com.dylix.xhsphotosave</div>
+    </div>
+  </div>
+
+  <div class="badges">
+    <span class="badge">1.0</span>
+    <span class="badge gray">iphoneos-arm64e</span>
+    <span class="badge gray">小红书 9.49.1</span>
+    <span class="badge gray">RootHide</span>
+  </div>
+
+  <div class="card">
+    <p>在小红书笔记页呼出面板，选择要保存的图片、实况照片或视频，一键写入系统相册。</p>
+    <p>所有资源都解析自笔记接口，直取 CDN 上的原始文件 —— 不是截图，也不是压缩过的缩略图。</p>
+  </div>
+
+  <h2>功能</h2>
+  <div class="card">
+    <ul>
+      <li><b>原图</b>：解析笔记接口直取 CDN 原图</li>
+      <li><b>实况照片</b>：保存为真正的 Live Photo，含 still-image-time 元数据轨与 content identifier 双向绑定，相册里长按会动</li>
+      <li><b>视频</b>：优先取最高清流（实测最高 1440P），自动带音轨；遇到分片流自动下载音轨并合轨</li>
+      <li><b>视频封面</b>：与视频并列为独立项，可单独保存或一起保存</li>
+      <li><b>选择面板</b>：4 列网格、垂直滚动，带实况与视频角标、分辨率与时长标注</li>
+      <li><b>主页零采集</b>：仅在笔记页采集，主页信息流不产生任何缓存</li>
+    </ul>
+  </div>
+
+  <h2>使用</h2>
+  <div class="card">
+    <ol>
+      <li>打开小红书任意笔记，悬浮球贴在屏幕边缘</li>
+      <li>点击悬浮球呼出选择面板</li>
+      <li>勾选要保存的图片 / 视频 / 封面</li>
+      <li>点「保存 N 张」写入系统相册</li>
+      <li>悬浮球可拖动，松手自动吸附到最近的边缘，3 秒无操作自动缩小</li>
+    </ol>
+  </div>
+
+  <h2>环境</h2>
+  <ul>
+    <li>小红书 <b>9.49.1</b> · RootHide rootless · arm64e</li>
+    <li>架构为 <code>iphoneos-arm64e</code>，覆盖 A12 及更新设备</li>
+    <li>其他小红书版本、其他越狱方案未验证</li>
+  </ul>
+
+  <h2>说明</h2>
+  <div class="card">
+    <div class="warn">小红书升级后接口字段可能变化，导致解析不到图片。此时面板会提示「没有获取到图片」，日志里能看到原因。</div>
+    <div class="warn">依赖小红书客户端内部接口，仅供自用备份自己有权保存的内容。</div>
+    <p style="margin-top:12px">诊断日志：<code>App 沙盒 / Documents/XHSPhotoSave.log</code></p>
+  </div>
+
+  <div class="foot">
+    BoloTweak · 维护者 菠萝<br>
+    <a href="https://github.com/muzappar1103/BoloTweak">GitHub 仓库</a>
+  </div>
+
+</div>
+</body>
+</html>
