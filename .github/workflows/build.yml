@@ -1,0 +1,65 @@
+name: Build Packages
+
+# 只要 debs/ 里的东西变了，就自动重建 Packages
+on:
+  push:
+    branches: [main]
+    paths:
+      - "debs/**"
+      - "scripts/gen_packages.py"
+      - "Release"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-packages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 安装 dpkg 工具
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq dpkg-dev bzip2
+
+      - name: 清理 macOS 残留文件
+        run: |
+          find . -iname ".DS_Store" -delete
+          find . -iname "._*" -delete
+          find . -iname "__MACOSX" -type d -prune -exec rm -rf {} +
+
+      - name: 生成 Packages
+        run: |
+          set -e
+          # -m 允许同一包多架构（arm64 / arm64e / arm 并存）
+          dpkg-scanpackages -m . /dev/null > Packages
+          # 去掉 dpkg-scanpackages 输出的 "Filename: ./..." 没问题，
+          # 但会附上 "Description-md5"，这字段无害，保留。
+          bzip2 -f -k -9 Packages
+          echo "---- Packages 内容预览 ----"
+          head -c 1200 Packages
+          echo
+          echo "---- 统计 ----"
+          grep -c '^Package:' Packages || echo 0
+
+      - name: 提交回仓库
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Packages Packages.bz2
+          if git diff --cached --quiet; then
+            echo "Packages 无变化，跳过提交。"
+          else
+            git commit -m "chore: 自动更新 Packages [skip ci]"
+            git push
+          fi
