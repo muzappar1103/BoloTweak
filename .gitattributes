@@ -11,6 +11,16 @@ Release         text eol=lf
 *.yml           text eol=lf
 *.md            text eol=lf
 
+# Theos / Logos 源码
+*.x             text eol=lf
+*.xm            text eol=lf
+*.plist         text eol=lf
+*.h             text eol=lf
+*.m             text eol=lf
+*.mm            text eol=lf
+Makefile        text eol=lf
+control         text eol=lf
+
 # 二进制资产
 *.deb           binary
 *.png           binary

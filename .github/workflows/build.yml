@@ -27,11 +27,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 安装 dpkg 工具
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq dpkg-dev bzip2
-
       - name: 清理 macOS 残留文件
         run: |
           find . -iname ".DS_Store" -delete
@@ -41,11 +36,8 @@ jobs:
       - name: 生成 Packages
         run: |
           set -e
-          # -m 允许同一包多架构（arm64 / arm64e / arm 并存）
-          dpkg-scanpackages -m . /dev/null > Packages
-          # 去掉 dpkg-scanpackages 输出的 "Filename: ./..." 没问题，
-          # 但会附上 "Description-md5"，这字段无害，保留。
-          bzip2 -f -k -9 Packages
+          # 用仓库自带的生成器（等价 dpkg-scanpackages -m，且会自动补 Depiction）
+          python3 scripts/gen_packages.py
           echo "---- Packages 内容预览 ----"
           head -c 1200 Packages
           echo

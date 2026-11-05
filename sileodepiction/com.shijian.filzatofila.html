@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0c">
+<title>FilzaToFila — BoloTweak</title>
+<style>
+  :root{
+    --bg:#0a0a0c; --card:#16161a; --line:rgba(255,255,255,.09);
+    --text:#f2f2f5; --text-dim:#8e8e99; --accent:#5b8cff;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #1b1f3a 0%, transparent 55%),
+      radial-gradient(90% 60% at 90% 10%, #2a1b3a 0%, transparent 50%),
+      var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue",Arial,sans-serif;
+    padding:calc(env(safe-area-inset-top) + 40px) 22px calc(env(safe-area-inset-bottom) + 40px);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.62;
+  }
+  .wrap{max-width:520px;margin:0 auto}
+  .head{display:flex;align-items:center;gap:14px}
+  .icon{
+    width:64px;height:64px;border-radius:16px;flex:0 0 64px;
+    background:linear-gradient(145deg,#5b8cff,#8f6bff 60%,#c46bff);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;font-weight:700;color:#fff;letter-spacing:-1px;
+    box-shadow:0 14px 32px -12px rgba(91,140,255,.6), inset 0 1px 0 rgba(255,255,255,.28);
+  }
+  h1{font-size:21px;margin:0 0 4px;font-weight:650;letter-spacing:-.3px}
+  .pkg{font-size:12.5px;color:var(--text-dim);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
+  .badge{
+    font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;
+    background:rgba(91,140,255,.13);border:1px solid rgba(91,140,255,.32);color:#9db4ff;
+  }
+  .badge.gray{background:rgba(255,255,255,.05);border-color:var(--line);color:var(--text-dim)}
+  h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);
+     margin:26px 0 10px;font-weight:650}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 17px}
+  .card p{margin:0 0 11px;font-size:14px}
+  .card p:last-child{margin-bottom:0}
+  ul{margin:0;padding-left:19px;font-size:14px}
+  li{margin:6px 0}
+  li::marker{color:#5b8cff}
+  .warn{
+    border-left:2px solid #c46bff;
+    background:rgba(196,107,255,.08);
+    padding:11px 14px;border-radius:0 10px 10px 0;
+    font-size:13px;color:#cfc6e8;
+  }
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+       font-size:12.5px;background:rgba(255,255,255,.06);padding:1px 5px;border-radius:5px;color:#c9d3f5}
+  .foot{margin-top:30px;font-size:11.5px;color:#54545e;text-align:center;line-height:1.85}
+  .foot a{color:#6d7ba8;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <div class="icon">FF</div>
+    <div>
+      <h1>FilzaToFila</h1>
+      <div class="pkg">com.shijian.filzatofila</div>
+    </div>
+  </div>
+
+  <div class="badges">
+    <span class="badge">0.0.14</span>
+    <span class="badge gray">iphoneos-arm64e</span>
+    <span class="badge gray">iOS 17.2 · RootHide</span>
+  </div>
+
+  <div class="card">
+    <p>在 Filza 的文件长按菜单中加入「用 Fila 打开」。</p>
+    <p>文件和文件夹均跳转到 Filza 当前所在的目录，不进入子目录。跳转沿用原始的 <code>fila://view&lt;路径&gt;</code> 方式。</p>
+  </div>
+
+  <h2>来源与适配说明</h2>
+  <div class="card">
+    <p>本包基于原作者 <b>时间会惩罚我</b> 的 <code>com.shijian.filzatofila</code> 0.0.1-2 版本工作适配，保留其原始的跳转约定与实现思路。</p>
+    <p>本版本由 BoloTweak 针对 <b>iOS 17.2 / RootHide</b> 环境重新构建：Filza bundle id 改为设备实测的 <code>com.bat.petal</code>，注入过滤与 RootHide 打包方式随之调整，菜单识别与当前浏览路径的获取逻辑也按设备实际行为做了适配。</p>
+    <div class="warn">作者署名与原始实现来源均予保留。本包不是原作者发布的官方更新，仅供自用适配。</div>
+  </div>
+
+  <h2>环境</h2>
+  <ul>
+    <li>iPhone16,2 · iOS 17.2 (21C62) · RootHide</li>
+    <li>Filza bundle id：<code>com.bat.petal</code></li>
+    <li>Fila bundle id：<code>wiki.qaq.fila</code></li>
+    <li>其他 iOS 版本、越狱方案与 Filza / Fila 版本未验证</li>
+  </ul>
+
+  <h2>使用</h2>
+  <ul>
+    <li>安装后彻底退出并重新打开 Filza</li>
+    <li>长按文件或文件夹 → <b>用 Fila 打开</b></li>
+    <li>诊断日志：<code>/var/mobile/Documents/filzatofila.log</code></li>
+  </ul>
+
+  <div class="foot">
+    BoloTweak · 维护者 菠萝<br>
+    <a href="https://github.com/muzappar1103/BoloTweak">GitHub 仓库</a>
+  </div>
+
+</div>
+</body>
+</html>

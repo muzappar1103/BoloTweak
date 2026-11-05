@@ -1,0 +1,15 @@
+Package: com.shijian.filzatofila
+Name: FilzaToFila
+Version: 0.0.14-1+debug
+Architecture: iphoneos-arm64e
+Section: Tweaks
+Installed-Size: 212
+Maintainer: 时间会惩罚我
+Author: 时间会惩罚我
+Description: Filza 长按菜单加"用 Fila 打开"
+Depiction: https://muzappar1103.github.io/BoloTweak/sileodepiction/com.shijian.filzatofila.html
+Filename: ./debs/com.shijian.filzatofila_0.0.14-1+debug_iphoneos-arm64e.deb
+Size: 39162
+MD5sum: 6f91f360c5fe15206f31701ae79d4a98
+SHA1: 5762063351c9d1903fdbb26616851d11ad1456c3
+SHA256: 40725ce0ed768a97eaced3eabe389ea3004380f9362fc330f5b590cac7ab49ed

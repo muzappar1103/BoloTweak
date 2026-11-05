@@ -1,0 +1,8 @@
+Package: com.shijian.filzatofila
+Name: FilzaToFila
+Description: Filza 长按菜单加"用 Fila 打开"
+Maintainer: 时间会惩罚我
+Author: 时间会惩罚我
+Section: Tweaks
+Architecture: iphoneos-arm64e
+Version: 0.0.14

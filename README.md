@@ -10,6 +10,14 @@ https://muzappar1103.github.io/BoloTweak/
 
 ---
 
+## 已有包
+
+| 包名 | 版本 | 架构 | 说明 |
+|---|---|---|---|
+| `com.shijian.filzatofila` | 0.0.14 | arm64e | **FilzaToFila** — Filza 长按菜单加「用 Fila 打开」。基于原作者 **时间会惩罚我** 的 0.0.1-2 版本适配 **iOS 17.2 / RootHide**，保留原始 `fila://view<路径>` 跳转方式，源码见 `source/FilzaToFila/`，适配说明见 `sileodepiction/com.shijian.filzatofila.html` |
+
+---
+
 ## 怎么加包
 
 1. 把编译好的 `.deb` 放进 `debs/`
@@ -53,6 +61,7 @@ python scripts/make_icon.py
 | `Packages` | 包索引，**自动生成** |
 | `Packages.bz2` | 同上，压缩版 |
 | `debs/` | 放 deb 的地方 |
+| `source/` | 各包的 tweak 源码（按包名分目录） |
 | `sileodepiction/` | 可选，包的详情页 `<包名>.html` |
 | `scripts/` | 本地工具 |
 
